@@ -1,0 +1,89 @@
+import java.util.*;
+
+interface HostelManagement {
+    void setStudentName(String name);
+    void setStudentID(int id);
+    void setRoomNumber(String roomNumber);
+    void setContactNumber(String contactNumber);
+    void displayBooking();
+    void displayStudentInfo();
+}
+
+class Hostel {
+    String studentName, roomNumber, contactNumber;
+    int studentID;
+
+    void setStudentName(String name) {
+        this.studentName = name;
+    }
+
+    void setStudentID(int id) {
+        this.studentID = id;
+    }
+
+    void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+}
+
+class Booking extends Hostel implements HostelManagement {
+    public void setStudentName(String name) {
+        super.setStudentName(name);
+    }
+
+    public void setStudentID(int id) {
+        super.setStudentID(id);
+    }
+
+    public void setRoomNumber(String roomNumber) {
+        super.setRoomNumber(roomNumber);
+    }
+
+    public void setContactNumber(String contactNumber) {
+        super.setContactNumber(contactNumber);
+    }
+
+    public void displayBooking() {
+        System.out.println("Booking Information:");
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Student ID: " + studentID);
+        System.out.println("Room Number: " + roomNumber);
+    }
+
+    public void displayStudentInfo() {
+        System.out.println("Student Information:");
+        System.out.println("Name: " + studentName);
+        System.out.println("ID: " + studentID);
+        System.out.println("Contact Number: " + contactNumber);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        String name, roomNumber, contactNumber;
+        int id;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter Student Name:");
+        name = sc.next();
+        System.out.println("Enter Student ID:");
+        id = sc.nextInt();
+        System.out.println("Enter Room Number:");
+        roomNumber = sc.next();
+        System.out.println("Enter Contact Number:");
+        contactNumber = sc.next();
+
+        Booking booking = new Booking();
+        booking.setStudentName(name);
+        booking.setStudentID(id);
+        booking.setRoomNumber(roomNumber);
+        booking.setContactNumber(contactNumber);
+
+        booking.displayBooking();
+        booking.displayStudentInfo();
+    }
+}
